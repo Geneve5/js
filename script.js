@@ -128,36 +128,136 @@ window.addEventListener('DOMContentLoaded', () => {
     console.log('Total Score = ' + totalScore);
   });
   
-    // Calculate the score
-  const calculateScore = () => {
+    // todo: Calculate score
+//   const calculateScore = () => {
+//     let score = 0;
+
+//     quizArray.map((quizItem, index) => {
+//       for (let i = 0; i < 4; i++) {
+//         //highlight the li if it is the correct answer
+//         let li = `li_${index}_${i}`;
+//         let r = `radio_${index}_${i}`;
+//         liElement = document.querySelector('#' + li);
+//         radioElement = document.querySelector('#' + r);
+//         if (radioElement.checked) {
+//           if (quizItem.a == i) {
+//             score++;
+//             liElement.style.backgroundColor = 'green';
+
+//           } else {
+//             liElement.style.backgroundColor = 'red';
+//           }
+//         } else if (quizItem.a == i) {
+//           liElement.style.backgroundColor = 'white';
+//         }
+
+//         console.log('Score In Loop ', score);
+//       }
+//     });
+//     return score;
+//   };
+
+//   // call the displayQuiz function
+//   displayQuiz();
+// });
+  
+  //todo ADD CALCULATE SCORE (Es score) 
+
+//   const calculateScore = (e) => {
+//     let score = 0;
+//     let scoreHTML = document.querySelector("#score");
+
+//     quizArray.map((quizItem, index) => {
+
+//          for (let i = 0; i < 4; i++) {
+
+//          //highlight the li if it is the correct answer
+//          let li = `li_${index}_${i}`;
+//          let r = `radio_${index}_${i}`;
+//          liElement = document.querySelector('#' + li);
+//          radioElement = document.querySelector('#' + r);
+      
+
+
+//          // CHNAGES :
+
+//          if (radioElement.checked >= 0) {
+
+//          e.preventDefault()
+//          }
+
+
+
+
+//           if (quizItem.a === i) {
+//               //change background color of li element here
+          
+//             liElement.style.backgroundColor = 'green';
+//             radioElement.value = 'true';
+//             console.log(i)
+          
+// //repeat?
+
+// if (radioElement.checked) {
+    
+//     console.log(quizItem.a);
+//     score++;
+//     scoreHTML.innerHTML = 'your current score is ${score} / 5/ ';
+//     console.log('Your current score is ${score}.');
+
+// }}}});}
+// });
+
+//todo get score:
+  const calculateScore = (e) => {
     let score = 0;
 
+    let scoreHTML = document.querySelector("#score");
     quizArray.map((quizItem, index) => {
+
+
+
+
       for (let i = 0; i < 4; i++) {
         //highlight the li if it is the correct answer
         let li = `li_${index}_${i}`;
         let r = `radio_${index}_${i}`;
         liElement = document.querySelector('#' + li);
         radioElement = document.querySelector('#' + r);
-        if (radioElement.checked) {
-          if (quizItem.a == i) {
+
+
+        if (radioElement.checked >= 0)  {
+
+        
+            
+          if (quizItem.a === i) {
             score++;
             liElement.style.backgroundColor = 'green';
+            radioElement.value = 'true';
+            console.log(i)
+
+
           } else {
             liElement.style.backgroundColor = 'red';
+            
           }
-        } else if (quizItem.a == i) {
+        } else if (quizItem.a === i) {
           liElement.style.backgroundColor = 'white';
+          console.log(i)
         }
 
-        console.log('Score In Loop ', score);
+        if (radioElement.checked)
+
+        console.log(quizItem.a);
+        score++;
+        scoreHTML.innerHTML = 'You scored '+ score +' / 5. ';
+        console.log('Your score ${score}.');
+
       }
     });
-    return score;
+    
   };
 
   // call the displayQuiz function
   displayQuiz();
 });
-  
-  //todo ADD CALCULATE SCORE 
